@@ -1,0 +1,52 @@
+[
+    {
+        "id":1,
+        "name": "Aarong",
+        "img":"https://i.ibb.co/q78z9gc/aarong-removebg-preview.png"
+    },
+    {
+        "id":2,
+        "name": "Apple",
+        "img":"https://i.ibb.co/6m33tmR/apple-removebg-preview.png"
+    },
+    {
+        "id":3,
+        "name": "Canon",
+        "img":"https://i.ibb.co/RTtLVst/canon-removebg-preview.png"
+    },
+    {
+        "id":4,
+        "name": "Hp",
+        "img":"https://i.ibb.co/W6S6zZr/hp-removebg-preview.png"
+    },
+    {
+        "id":5,
+        "name": "Lenovo",
+        "img":"https://i.ibb.co/jDVMynY/lenovo-removebg-preview.png"
+    },
+    {
+        "id":6,
+        "name": "Nike",
+        "img":"https://i.ibb.co/X2cH8Qz/nike-removebg-preview.png"
+    },
+    {
+        "id":7,
+        "name": "Hp",
+        "img":"https://i.ibb.co/W6S6zZr/hp-removebg-preview.png"
+    },
+    {
+        "id":8,
+        "name": "Nikon",
+        "img":"https://i.ibb.co/mNJH3w8/nikon.png"
+    },
+    {
+        "id":9,
+        "name": "Omega",
+        "img":"https://i.ibb.co/t2fLbTy/omega-removebg-preview.png"
+    },
+    {
+        "id":10,
+        "name": "Rolex",
+        "img":"https://i.ibb.co/0yzwZx6/rolex-removebg-preview.png"
+    }
+]

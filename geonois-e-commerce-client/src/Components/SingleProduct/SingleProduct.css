@@ -1,0 +1,74 @@
+.product-icon{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    border: 1px solid #c9b7b7;
+    border-radius: 50%;
+}
+
+.single-product{
+    position: relative;
+}
+
+.product-icon{
+    margin-bottom: 10px;
+}
+
+.product-icons{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: none;
+    transition: .3s;
+}
+
+.product-button{
+    position: absolute;
+    top: 200px;
+    width: 100%;
+    display: none;
+    transition: .3s;
+    border-radius: 20px;
+}
+.product-button{
+    background: #0d6efd;
+}
+.product-button:hover{
+    background: #ff782c;
+}
+.icon-heart-div:hover{
+    background: #ff782c;
+}
+.icon-heart-div:hover .icon-heart{
+    color: #fff;
+}
+.icon-compare-div:hover{
+    background: #ff782c;
+}
+.icon-compare-div:hover .icon-compare{
+    color: #fff;
+}
+.icon-glass-div:hover{
+    background: #ff782c;
+}
+.icon-glass-div:hover .icon-glass{
+    color: #fff;
+}
+
+.single-product:hover .product-icons,
+.single-product:hover .product-button
+{
+    display: block;
+    transition: all ease-in-out .3s;
+}
+
+
+@media (max-width: 767px) {
+    /* styles for small devices */
+    .product-icons,
+    .product-button{
+        display: block;
+    }
+  }

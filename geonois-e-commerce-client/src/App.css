@@ -1,0 +1,26 @@
+.remove_underline_white {
+  color: white;
+  text-decoration: none;
+}
+.remove_underline_black {
+  color: black;
+  text-decoration: none;
+}
+
+.background_color {
+  background-color: #f5f5f5;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: minmax(50px, 1fr) auto minmax(50px, 1fr);
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+}
+
+.header::before,
+.header::after {
+  content: "";
+  border-top: 6px double;
+}

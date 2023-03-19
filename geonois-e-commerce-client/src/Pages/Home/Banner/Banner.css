@@ -1,0 +1,13 @@
+.slick-arrow{
+    display: none;
+}
+
+.slick-next{
+    right: 0;
+    background: red;
+}
+.slick-prev{
+    left: 0;
+    z-index: 2;
+}
+
