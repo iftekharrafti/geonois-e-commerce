@@ -30,12 +30,12 @@
     background-color: transparent;
   }
   .input-box .button {
-    right: 0px;
+    right: -5px;
     font-size: 16px;
     font-weight: 400;
     color: #fff;
     border: none;
-    padding: 8px 25px;
+    padding: 9px 25px;
     border-radius: 6px;
     background-color: #4070f4;
     cursor: pointer;

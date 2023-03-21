@@ -1,0 +1,20 @@
+.offer{
+    position: relative;
+}
+
+.offer-desc{
+    position: absolute;
+    top: 20%;
+    left: 12%;
+    width: 35%;
+}
+
+.offer-desc h4{
+    background: #4070f4;
+    padding: 0 5px;
+    color: #fff;
+    width: fit-content;
+}
+.offer-desc h2{
+    color: #fff;
+}

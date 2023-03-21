@@ -24,3 +24,8 @@
   content: "";
   border-top: 6px double;
 }
+
+.remove-focus:focus {
+    box-shadow: none;
+    outline: none;
+  }

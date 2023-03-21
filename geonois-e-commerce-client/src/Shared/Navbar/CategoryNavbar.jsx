@@ -18,6 +18,11 @@ const CategoryNavbar = () => {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
             <Nav className="me-auto">
+            <Nav.Link>
+                <Link className="remove_underline_white" to="/products">
+                  All Products
+                </Link>
+              </Nav.Link>
               <Dropdown
                 onMouseEnter={() => setMensDropdown(true)}
                 onMouseLeave={() => setMensDropdown(false)}

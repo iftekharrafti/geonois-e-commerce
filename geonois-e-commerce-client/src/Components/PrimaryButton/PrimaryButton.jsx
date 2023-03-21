@@ -1,11 +1,11 @@
 import React from 'react';
 import './PrimaryButton.css';
 
-const PrimaryButton = () => {
+const PrimaryButton = ({children}) => {
     return (
         <div>
             <button className="primary-button">
-              More Products
+              {children}
             </button>
         </div>
     );

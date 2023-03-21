@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Col, Image } from "react-bootstrap";
-import img from "../../assets/cloths/mens/mens-1.jpg";
+// import img from "../../assets/cloths/mens/mens-1.jpg";
 import { AiOutlineHeart } from "react-icons/ai";
 import { DiGitCompare } from "react-icons/di";
 import { GiMagnifyingGlass } from "react-icons/gi";
@@ -9,8 +9,11 @@ import { AiFillStar } from "react-icons/ai";
 import { AiOutlineStar } from "react-icons/ai";
 import Rating from "react-rating";
 import "./SingleProduct.css";
+import { Link } from "react-router-dom";
 
-const SingleProduct = () => {
+const SingleProduct = ({product}) => {
+  const {_id, title, img, price, rating} = product;
+
   return (
     <Col md={3} sm={6}>
       <div className="single-product bg-white rounded mb-4">
@@ -50,12 +53,14 @@ const SingleProduct = () => {
           </Button>
         </div>
         <div className="p-4">
-          <h6>$50</h6>
-          <h5 className="fw-bold">Panjabi with</h5>
+          <h6>${price}</h6>
+          <Link to={`/productDetails/${_id}`} className="remove_underline_black">
+            <h5 className="fw-bold">{title.slice(0,30)}...</h5>
+          </Link>
           <p>
             {" "}
             <Rating
-              initialRating={3}
+              initialRating={rating}
               emptySymbol={<AiOutlineStar style={{color: '#FFCB45'}} />}
               fullSymbol={<AiFillStar style={{color: '#FFCB45'}} />}
             />
