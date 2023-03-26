@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import ProductDetails from "../Components/ProductDetails/ProductDetails";
 import Main from "../Layout/Main";
+import Bookmark from "../Pages/Bookmark/Bookmark";
+import Cart from "../Pages/Cart/Cart";
 import Contact from "../Pages/Contact/Contact";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import Shop from "../Pages/Dashboard/Shop/Shop";
@@ -65,6 +67,14 @@ const router = createBrowserRouter([
             {
                 path: '/productDetails/:productId',
                 element: <ProductDetails />
+            },
+            {
+                path: '/cart',
+                element: <Cart />
+            },
+            {
+                path: '/bookmark',
+                element: <Bookmark />
             },
         ]
     },
