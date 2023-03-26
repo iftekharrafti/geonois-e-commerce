@@ -27,7 +27,7 @@ const TopNavbar = () => {
           </Form>
           <Nav>
             <div className="d-flex">
-              <Link to="/" className="ms-3">
+              <Link to="/dashboard" className="ms-3">
                 <div style={{ position: "relative" }}>
                   <HiOutlineUser style={{ fontSize: "28px", color: "#fff" }} />
                 </div>

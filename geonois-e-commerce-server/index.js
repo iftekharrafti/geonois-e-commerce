@@ -25,9 +25,10 @@ async function run() {
     // Create Collection
     const database = client.db("geonoisECommerce");
     const products = database.collection("products");
+    const categories = database.collection("categories");
 
 
-    // All Courses Get from the database
+    // All Products Get from the database
     app.get("/products", async (req, res) => {
       const query = {};
       const options = await products.find(query).toArray();
@@ -71,6 +72,13 @@ async function run() {
       const id = req.params.id;
       const query = { _id: new ObjectId(id)}
       const options = await courses.deleteOne(query);
+      res.send(options);
+    })
+
+    // All categories get from the database
+    app.get('/categories', async (req, res) => {
+      const query = {};
+      const options = await categories.find(query).toArray();
       res.send(options);
     })
 

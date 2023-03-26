@@ -117,7 +117,7 @@ const CategoryNavbar = () => {
                   <Dropdown.Item>
                     <Link
                       className="remove_underline_black"
-                      to="/electronics/smartphones"
+                      to="/electronics/smartphone"
                     >
                       Smartphones
                     </Link>
@@ -133,7 +133,7 @@ const CategoryNavbar = () => {
                   <Dropdown.Item>
                     <Link
                       className="remove_underline_black"
-                      to="/electronics/laptops"
+                      to="/electronics/laptop"
                     >
                       Laptops
                     </Link>
@@ -141,7 +141,7 @@ const CategoryNavbar = () => {
                   <Dropdown.Item>
                     <Link
                       className="remove_underline_black"
-                      to="/electronics/tablets"
+                      to="/electronics/tablet"
                     >
                       Tablets
                     </Link>

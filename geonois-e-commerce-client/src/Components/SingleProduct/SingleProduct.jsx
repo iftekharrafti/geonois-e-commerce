@@ -10,9 +10,13 @@ import { AiOutlineStar } from "react-icons/ai";
 import Rating from "react-rating";
 import "./SingleProduct.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../features/products/productsSlice";
 
 const SingleProduct = ({product}) => {
   const {_id, title, img, price, rating} = product;
+
+  const dispatch = useDispatch();
 
   return (
     <Col md={3} sm={6}>
@@ -45,7 +49,7 @@ const SingleProduct = ({product}) => {
           </div>
         </div>
         <div className="product-button">
-          <Button style={{ width: "100%", fontSize: "16px", borderRadius: '20px' }}>
+          <Button onClick={() => dispatch(addToCart(product))} style={{ width: "100%", fontSize: "16px", borderRadius: '20px' }}>
             <BsFillBagPlusFill
               style={{ fontSize: "16px", marginRight: "5px" }}
             />

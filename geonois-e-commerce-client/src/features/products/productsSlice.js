@@ -19,7 +19,9 @@ const productsSlice = createSlice({
     name: 'productsSlice',
     initialState,
     reducers: {
-
+        addToCart: (state, action) =>{
+            state.cart.push(action.payload)
+        }
     },
     extraReducers: (builder) => {
         builder.addCase(fetchProducts.pending, (state) =>{
@@ -40,6 +42,6 @@ const productsSlice = createSlice({
     }
 })
 
-
+export const {addToCart} = productsSlice.actions;
 
 export default productsSlice.reducer;

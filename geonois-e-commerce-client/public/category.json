@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Men's Fashion",
+        "img": "https://i.ibb.co/qsWwsZr/mens-fashion.jpg"
+    },
+    {
+        "title": "Women's Fashion",
+        "img": "https://i.ibb.co/7yDWQrC/womens.jpg"
+    },
+    {
+        "title": "Watches",
+        "img": "https://i.ibb.co/x30fVXL/watch.jpg"
+    },
+    {
+        "title": "Electronics",
+        "img": "https://i.ibb.co/jvqKrYg/electronics.jpg"
+    },
+    {
+        "title": "Sports",
+        "img": "https://i.ibb.co/h8d6tZc/sports.jpg"
+    }
+]
