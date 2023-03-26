@@ -15,30 +15,33 @@ import "./ProductDetails.css";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsFillBagPlusFill } from "react-icons/bs";
 import { DiGitCompare } from "react-icons/di";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../features/products/productsApi";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../features/products/productsSlice";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 import Loading from "../Loading/Loading";
 
 const ProductDetails = () => {
   const { productId } = useParams();
-  const [quantity, setQuantity] = useState(1)
+  const [quantity, setQuantity] = useState(1);
 
   const { isLoading, data, isError, error } = useGetProductByIdQuery(productId);
 
+  const state = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
-  const handleCart = (data) =>{
+  const handleCart = (data) => {
     const newData = {
       ...data,
-      quantity
-    }
-    dispatch(addToCart(newData))
+      quantity,
+    };
+    dispatch(addToCart(newData));
     toast.success("Product added to cart");
-  }
+  };
 
+  const idMatching = state.cart.some((course) => course._id === productId);
+  console.log(idMatching);
 
   return (
     <div className="background_color py-5">
@@ -82,7 +85,16 @@ const ProductDetails = () => {
             <div className="d-flex align-items-center">
               <h5>Quantity</h5>
               <div className="ms-4">
-                <button onClick={() => data?.stock === quantity ? setQuantity(data?.stock) : setQuantity(quantity + 1)} className="increase">+</button>
+                <button
+                  onClick={() =>
+                    data?.stock === quantity
+                      ? setQuantity(data?.stock)
+                      : setQuantity(quantity + 1)
+                  }
+                  className="increase"
+                >
+                  +
+                </button>
                 <input
                   className="quantity-input"
                   type="text"
@@ -90,30 +102,55 @@ const ProductDetails = () => {
                   id=""
                   value={quantity}
                 />
-                <button onClick={() => quantity > 0 ? setQuantity(quantity - 1) : setQuantity(0)} className="decrease">-</button>
+                <button
+                  onClick={() =>
+                    quantity > 0 ? setQuantity(quantity - 1) : setQuantity(0)
+                  }
+                  className="decrease"
+                >
+                  -
+                </button>
               </div>
             </div>
 
             <div className="d-flex mt-4">
               <div>
-                <Button
-                  onClick={() => handleCart(data)}
-                  className="d-flex justify-content-center align-items-center"
-                  style={{
-                    width: "100%",
-                    fontSize: "16px",
-                    borderRadius: "20px",
-                  }}
-                >
-                  <BsFillBagPlusFill
-                    style={{ fontSize: "16px", marginRight: "5px" }}
-                  />
-                  Add To Cart
-                </Button>
+                {idMatching ? (
+                  <Link to="/cart" className="remove_underline_white">
+                    <Button
+                      className="d-flex justify-content-center align-items-center"
+                      style={{
+                        width: "100%",
+                        fontSize: "16px",
+                        borderRadius: "20px",
+                      }}
+                    >
+                      <BsFillBagPlusFill
+                        style={{ fontSize: "16px", marginRight: "5px" }}
+                      />
+                      Go To Cart
+                    </Button>
+                  </Link>
+                ) : (
+                  <Button
+                    onClick={() => handleCart(data)}
+                    className="d-flex justify-content-center align-items-center"
+                    style={{
+                      width: "100%",
+                      fontSize: "16px",
+                      borderRadius: "20px",
+                    }}
+                  >
+                    <BsFillBagPlusFill
+                      style={{ fontSize: "16px", marginRight: "5px" }}
+                    />
+                    Add To Cart
+                  </Button>
+                )}
               </div>
               <div className="ms-4">
                 <Button
-                className="d-flex justify-content-center align-items-center"
+                  className="d-flex justify-content-center align-items-center"
                   style={{
                     width: "100%",
                     fontSize: "16px",
@@ -151,7 +188,8 @@ const ProductDetails = () => {
                 <Accordion.Header>SHIPPING & RETURNS</Accordion.Header>
                 <Accordion.Body>
                   Free shipping and returns available on all orders! We ship all
-                  US domestic orders within <span className="fw-bold">5-10 business days!</span>
+                  US domestic orders within{" "}
+                  <span className="fw-bold">5-10 business days!</span>
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item className="remove_focus" eventKey="1">

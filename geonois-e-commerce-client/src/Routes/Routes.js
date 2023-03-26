@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import ProductDetails from "../Components/ProductDetails/ProductDetails";
 import Main from "../Layout/Main";
+import Bookmark from "../Pages/Bookmark/Bookmark";
+import Cart from "../Pages/Cart/Cart";
 import Contact from "../Pages/Contact/Contact";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import Shop from "../Pages/Dashboard/Shop/Shop";
@@ -8,6 +10,9 @@ import FashionItem from "../Pages/FashionItem/FashionItem";
 import Home from "../Pages/Home/Home";
 import Products from "../Pages/Products/Products";
 import Sports from "../Pages/Sports/Sports";
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 
 const router = createBrowserRouter([
     {
@@ -66,6 +71,14 @@ const router = createBrowserRouter([
                 path: '/productDetails/:productId',
                 element: <ProductDetails />
             },
+            {
+                path: '/cart',
+                element: <Cart />
+            },
+            {
+                path: '/bookmark',
+                element: <Bookmark />
+            },
         ]
     },
     {
@@ -81,3 +94,4 @@ const router = createBrowserRouter([
 ])
 
 export default router;
+
