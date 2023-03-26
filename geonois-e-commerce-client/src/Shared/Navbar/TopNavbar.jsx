@@ -15,7 +15,7 @@ import './TopNavbar.css';
 import {useSelector} from 'react-redux'
 
 const TopNavbar = () => {
-  const {cart} = useSelector(state => state.product)
+  const {cart, bookmark} = useSelector(state => state.product)
 
   return (
     <div>
@@ -35,7 +35,7 @@ const TopNavbar = () => {
                   <HiOutlineUser style={{ fontSize: "28px", color: "#fff" }} />
                 </div>
               </Link>
-              <Link to="/" className="ms-3">
+              <Link to="/bookmark" className="ms-3">
                 <div style={{ position: "relative" }}>
                   <AiOutlineHeart style={{ fontSize: "28px", color: "#fff" }} />
                   <div
@@ -45,7 +45,7 @@ const TopNavbar = () => {
                       right: "-8px",
                     }}
                   >
-                    <Badge style={{ background: "#FDDA06" }}>0</Badge>
+                    <Badge style={{ background: "#FDDA06" }}>{bookmark.length}</Badge>
                   </div>
                 </div>
               </Link>
@@ -63,7 +63,7 @@ const TopNavbar = () => {
                   </div>
                 </div>
               </Link>
-              <Link to="/" className="ms-3">
+              <Link to="/cart" className="ms-3">
                 <div style={{ position: "relative" }}>
                   <BsCart3 style={{ fontSize: "28px", color: "#fff" }} />
                   <div

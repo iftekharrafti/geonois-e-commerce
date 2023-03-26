@@ -7,22 +7,32 @@ import { GiMagnifyingGlass } from "react-icons/gi";
 import { BsFillBagPlusFill } from "react-icons/bs";
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineStar } from "react-icons/ai";
+import { AiFillHeart } from "react-icons/ai";
 import Rating from "react-rating";
 import "./SingleProduct.css";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../features/products/productsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToBookmark, addToCart } from "../../features/products/productsSlice";
 import { toast } from "react-hot-toast";
 
 const SingleProduct = ({product}) => {
   const {_id, title, img, price, rating} = product;
 
+  const {bookmark} = useSelector(state => state.product);
   const dispatch = useDispatch();
 
   const handleAddToCart = (product) =>{
-    toast.success("Product Added to Cart");
     dispatch(addToCart(product))
+    toast.success("Product Added to Cart");
   }
+
+  const handleBookmark = (product) =>{
+    dispatch(addToBookmark(product))
+    toast.success("Product added to Bookmark");
+  }
+
+  // Get Bookmark course id
+  const bookmarkIdArray = bookmark.map(course => course._id);
 
   return (
     <Col md={3} sm={6}>
@@ -35,12 +45,22 @@ const SingleProduct = ({product}) => {
           />
         </div>
         <div className="product-icons">
-          <div className="product-icon icon-heart-div">
+          {
+            bookmarkIdArray.includes(product._id) ? <div className="product-icon icon-heart-div" disabled>
+            <AiFillHeart
+              className="icon-heart"
+              style={{ fontSize: "22px" }}
+            />
+          </div>
+          :
+          <div onClick={() =>handleBookmark(product)} className="product-icon icon-heart-div">
             <AiOutlineHeart
               className="icon-heart"
               style={{ fontSize: "22px" }}
             />
           </div>
+          }
+          
           <div className="product-icon icon-compare-div">
             <DiGitCompare
               className="icon-compare"

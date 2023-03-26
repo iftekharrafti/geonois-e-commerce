@@ -5,6 +5,7 @@ const initialState = {
     products: [],
     filterProducts: [],
     cart: [],
+    bookmark: [],
     isLoading: false,
     isError: false,
     error: ""
@@ -33,7 +34,16 @@ const productsSlice = createSlice({
                 const newProduct = {...action.payload, quantity: 1}
                 state.cart.push(newProduct)
             }
-        }
+        },
+        removeFromCart: (state, action) =>{
+            state.cart = state.cart.filter(product => product._id !== action.payload)
+        },
+        addToBookmark: (state, action) =>{
+            state.bookmark.push(action.payload)
+        },
+        removeFromBookmark: (state, action) =>{
+            state.bookmark = state.bookmark.filter(product => product._id !== action.payload)
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(fetchProducts.pending, (state) =>{
@@ -54,6 +64,6 @@ const productsSlice = createSlice({
     }
 })
 
-export const {addToCart} = productsSlice.actions;
+export const {addToCart, removeFromCart, addToBookmark, removeFromBookmark} = productsSlice.actions;
 
 export default productsSlice.reducer;
