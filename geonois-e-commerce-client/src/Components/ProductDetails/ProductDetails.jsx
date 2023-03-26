@@ -19,19 +19,33 @@ import { useParams } from "react-router-dom";
 import { useGetProductByIdQuery } from "../../features/products/productsApi";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../features/products/productsSlice";
+import toast from 'react-hot-toast';
+import Loading from "../Loading/Loading";
 
 const ProductDetails = () => {
   const { productId } = useParams();
-  const [quantity, setQuantity] = useState(0)
+  const [quantity, setQuantity] = useState(1)
 
-  const { isLoading, data, isError } = useGetProductByIdQuery(productId);
+  const { isLoading, data, isError, error } = useGetProductByIdQuery(productId);
 
   const dispatch = useDispatch();
+
+  const handleCart = (data) =>{
+    const newData = {
+      ...data,
+      quantity
+    }
+    dispatch(addToCart(newData))
+    toast.success("Product added to cart");
+  }
+
 
   return (
     <div className="background_color py-5">
       <Container>
         <Row>
+          {isLoading && <Loading />}
+          {isError && <p>{error}</p>}
           <Col md={5} sm={12}>
             <Image src={data?.img} className="img-fluid" />
           </Col>
@@ -80,11 +94,10 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            {/* <button onClick={() => dispatch(addToCart(data))}>add</button> */}
             <div className="d-flex mt-4">
               <div>
                 <Button
-                  onClick={() => dispatch(addToCart(data))}
+                  onClick={() => handleCart(data)}
                   className="d-flex justify-content-center align-items-center"
                   style={{
                     width: "100%",

@@ -12,11 +12,17 @@ import "./SingleProduct.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../features/products/productsSlice";
+import { toast } from "react-hot-toast";
 
 const SingleProduct = ({product}) => {
   const {_id, title, img, price, rating} = product;
 
   const dispatch = useDispatch();
+
+  const handleAddToCart = (product) =>{
+    toast.success("Product Added to Cart");
+    dispatch(addToCart(product))
+  }
 
   return (
     <Col md={3} sm={6}>
@@ -49,7 +55,7 @@ const SingleProduct = ({product}) => {
           </div>
         </div>
         <div className="product-button">
-          <Button onClick={() => dispatch(addToCart(product))} style={{ width: "100%", fontSize: "16px", borderRadius: '20px' }}>
+          <Button onClick={() => handleAddToCart(product)} className="d-flex justify-content-center align-items-center" style={{ width: "100%", fontSize: "16px", borderRadius: '20px' }}>
             <BsFillBagPlusFill
               style={{ fontSize: "16px", marginRight: "5px" }}
             />

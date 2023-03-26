@@ -20,7 +20,19 @@ const productsSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action) =>{
-            state.cart.push(action.payload)
+            const foundProduct = state.cart.find(product => product._id === action.payload._id)
+            const quantity = action.payload.quantity;
+
+            if(foundProduct && foundProduct.stock > foundProduct.quantity){
+                foundProduct.quantity += 1;
+            }
+            if(!foundProduct && quantity){
+                state.cart.push(action.payload)
+            }
+            if(!foundProduct && !quantity){
+                const newProduct = {...action.payload, quantity: 1}
+                state.cart.push(newProduct)
+            }
         }
     },
     extraReducers: (builder) => {

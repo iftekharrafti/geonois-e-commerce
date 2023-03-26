@@ -13,6 +13,7 @@ function App() {
     <div className="">
         <RouterProvider router={router}>  
           <Main />
+          
         </RouterProvider>
     </div>
   );

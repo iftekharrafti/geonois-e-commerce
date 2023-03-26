@@ -12,8 +12,11 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { DiGitCompare } from "react-icons/di";
 import { BsCart3 } from "react-icons/bs";
 import './TopNavbar.css';
+import {useSelector} from 'react-redux'
 
 const TopNavbar = () => {
+  const {cart} = useSelector(state => state.product)
+
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -70,7 +73,7 @@ const TopNavbar = () => {
                       right: "-8px",
                     }}
                   >
-                    <Badge style={{ background: "#FDDA06" }}>0</Badge>
+                    <Badge style={{ background: "#FDDA06" }}>{cart.length}</Badge>
                   </div>
                 </div>
               </Link>
